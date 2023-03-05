@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Submit A Chat Page</title>
+{% endblock %}
+
+{% block body %}
+<h1>Submit A Chat</h1>
+<div>
+    <form action="/chatSubmitted" method="POST" id="chat_source_form" enctype=multipart/form-data>
+        <!-- Text box information -->
+        <div>
+            <h2>Expected Chat Format</h2>
+            <p>Chats include the party names indicated with a colon, and the messages sent by each party. Party messages are indented (either by spaces or tabs) from the beginning of the line to differentiate them from the party sender lines. An example is included below:</p>
+            <pre><code>John:
+    I like apples
+    What is your favourite fruit?
+Jane:
+    I like oranges better, apples be gross sometimes
+John:
+    Oh really, I think apples are superior
+Janet:
+    Interesting</code></pre>
+        </div>
+        <div>
+            <!-- Submit transcript in text box -->
+            <h2>Upload Chat Log</h2>
+            <label for="chatfile">Upload chat log file:</label>
+            <input type="file" id="chatfile" name="chatfile">
+            <!-- Page break to put submit form on new line -->
+            <br>
+            <p><label for="transcript_text_box">Or paste Dialog Transcript below:</label></p>
+            <textarea id="transcript_text_box" name="transcript_text" rows="10" cols="75"></textarea>
+            <!-- Page break to put submit form on new line -->
+            <br>
+        </div>
+        <div>
+            <!-- Upload file to chat -->
+            <h2>Summary Options</h2>
+            {% for opt in opts %}
+            <input type="checkbox" id="summarizer_opt_{{loop.index}}" name="summarizer_opt_{{opt[0]}}" value="{{opt[0]}}">
+            <label for="summarizer_opt_{{loop.index}}">{{ opt[1] }}</label><br>
+            {% endfor %}
+            <!-- Page break to put submit form on new line -->
+            <br>
+        </div>
+        <!-- Submit button -->
+        <input type="submit" value="Summarize!">
+    </form>
+</div>
+{% endblock %}
