@@ -15,4 +15,6 @@ code {
 /* NEW CSS STARTS HERE */
 .bcontainer {
   border: 1px dashed blue;
+  padding: 0px;
+  margin: 0px;
 }
