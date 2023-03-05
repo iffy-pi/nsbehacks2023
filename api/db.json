@@ -1,0 +1,172 @@
+[
+    {
+        "id": 0,
+        "stylist_name": "Solange Styles",
+        "location": {
+            "city": "Montreal, QB"
+        },
+        "stylist_contacts": {
+            "instagram": "solange.styles",
+            "phoneno": "+1 343 3827 2901",
+            "email": "solange.styles@gmail.com"
+        },
+
+        "offerings": [
+            {
+                "name": "Knotless Braids",
+                "keywords": [
+                    "knotless",
+                    "knotless braids"
+                ],
+                "price": [ 100, 150 ]
+            },
+
+            {
+                "name": "Fulani Braids",
+                "keywords": [
+                    "fulani",
+                    "fulani braids"
+                ],
+                "price": [ 95 ]
+            },
+
+            {
+                "name": "Box Braids",
+                "keywords": [
+                    "boxbraids",
+                    "box",
+                    "box braids"
+                ],
+                "price": [ 75, 95 ]
+            },
+
+            {
+                "name": "Twists",
+                "keywords": [
+                    "twists"
+                ],
+                "price": [ 75, 95 ]
+            }
+        ],
+
+
+        "policies": [
+            "Hair Detangled",
+            "Pre-Stretched Hair Attachment",
+            "$15 Booking Deposit"
+        ],
+        "other": {
+
+        }
+    },
+
+    {
+        "id": 1,
+        "stylist_name": "Nia's Braids",
+        "stylist_contacts": {
+            "instagram": "niasbraids",
+            "phoneno": "+1 678 1234 5678",
+            "email": "nia.braids@gmail.com"
+        },
+        "location": {
+            "city": "Toronto, ON"
+        },
+        "offerings": [
+            {
+                "name": "Goddess Braids",
+                "keywords": [
+                    "goddess",
+                    "goddess braids"
+                ],
+                "price": [
+                    120,
+                    150,
+                    180
+                ]
+            },
+            {
+                "name": "Senegalese Twists",
+                "keywords": [
+                    "senegalese",
+                    "senegalese twists"
+                ],
+                "price": [
+                    100,
+                    120
+                ]
+            },
+            {
+                "name": "Crochet Braids",
+                "keywords": [
+                    "crochet",
+                    "crochet braids"
+                ],
+                "price": [
+                    80,
+                    100
+                ]
+            }
+        ],
+        "policies": [
+            "Clean and Dry Hair",
+            "Late Arrivals May Need to Reschedule",
+            "50% Deposit Required for First-Time Clients"
+        ],
+        "other": {}
+    },
+    
+    {
+        "id": 2,
+        "stylist_name": "Bella's Beauty",
+        "stylist_contacts": {
+            "instagram": "bellasbeauty",
+            "phoneno": "+1 212 555 1212",
+            "email": "bella.beauty@gmail.com"
+        },
+        "location": {
+            "city": "Kingston, ON"
+        },
+        "offerings": [
+            {
+                "name": "Silk Press",
+                "keywords": [
+                    "silk press"
+                ],
+                "price": [
+                    65,
+                    105
+                ]
+            },
+            {
+                "name": "Bridal Updo",
+                "keywords": [
+                    "bridal",
+                    "updo"
+                ],
+                "price": [
+                    150,
+                    250
+                ]
+            },
+            {
+                "name": "Haircut and Style",
+                "keywords": [
+                    "haircut",
+                    "style"
+                ],
+                "price": [
+                    45,
+                    85
+                ]
+            }
+        ],
+        "policies": [
+            "Arrive with Clean, Dry Hair",
+            "24 Hour Cancellation Policy",
+            "No Children Allowed in the Salon"
+        ],
+        "other": {}
+    }
+    
+    
+]

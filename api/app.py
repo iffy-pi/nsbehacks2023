@@ -8,6 +8,7 @@ import time
 from flask import (Flask, flash, redirect, render_template, request, send_file,
                    session, url_for, Response)
 from flask_cors import CORS 
+from api.dbsearch import search
 
 # initialize app flask object
 # intializing to the name of the file
@@ -72,14 +73,28 @@ def test_sample():
     if request.method != 'POST':
         return error_response(400, message='Invalid HTTP method!')
 
-    # Expecting the following keys
     # summary options and transcript
     if request.json is None:
         return error_response(400, message='No JSON content included!')
+    
+    # Expecting the following keys
+    expected_keys = [ 'query', 'filters']
+
+    missing_keys = list(filter(
+        lambda key: key not in request.json,
+        expected_keys
+    ))
+
+    if len(missing_keys) > 0:
+        return error_response(400, message="Required keys are missing: {}".format(missing_keys))
+
+    results = search(request.json['query'], request.json['filters'])
 
     # for now craft a simple relay message
     js = {
-        'rsp': 'Hello World'
+        'query': request.json['query'],
+        'filters': request.json['filters'],
+        'results': results
     }
     resp = make_json_response(js)
     return resp

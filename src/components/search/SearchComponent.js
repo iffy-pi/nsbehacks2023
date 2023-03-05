@@ -26,6 +26,7 @@ const SearchComponent = ({ response, setResponse }) => {
 
     const onSearch = async () => {
         const req = {
+            query: query,
             filters: filters
         }
 
