@@ -49,3 +49,48 @@ results = pd.DataFrame(data={'texts': df.iloc[similar_item_ids[0]]['text'],
                              'distance': similar_item_ids[1]}).drop(example_id)
 print(f"Question:'{df.iloc[example_id]['text']}'\nNearest neighbors:")
 results
+
+query = "What is the tallest mountain in the world?"
+
+# Get the query's embedding
+query_embed = co.embed(texts=[query],
+                  model="large").embeddings
+
+# Retrieve the nearest neighbors
+similar_item_ids = search_index.get_nns_by_vector(query_embed[0],10,
+                                                include_distances=True)
+# Format the results
+results = pd.DataFrame(data={'texts': df.iloc[similar_item_ids[0]]['text'], 
+                             'distance': similar_item_ids[1]})
+
+
+print(f"Query:'{query}'\nNearest neighbors:")
+results
+
+#@title Plot the archive {display-mode: "form"}
+
+# UMAP reduces the dimensions from 1024 to 2 dimensions that we can plot
+reducer = umap.UMAP(n_neighbors=20) 
+umap_embeds = reducer.fit_transform(embeds)
+# Prepare the data to plot and interactive visualization
+# using Altair
+df_explore = pd.DataFrame(data={'text': df['text']})
+df_explore['x'] = umap_embeds[:,0]
+df_explore['y'] = umap_embeds[:,1]
+
+# Plot
+chart = alt.Chart(df_explore).mark_circle(size=60).encode(
+    x=#'x',
+    alt.X('x',
+        scale=alt.Scale(zero=False)
+    ),
+    y=
+    alt.Y('y',
+        scale=alt.Scale(zero=False)
+    ),
+    tooltip=['text']
+).properties(
+    width=700,
+    height=400
+)
+chart.interactive()
