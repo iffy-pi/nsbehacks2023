@@ -1,7 +1,7 @@
 import { useState } from "react"
 
-const TextField = ({ returnText }) => {
-    const [ inputText, setInputText ] = useState('')
+const TextField = ({ returnText, placeholder, initialText }) => {
+    const [ inputText, setInputText ] = useState(initialText)
 
     const onTextChange = (newText) => {
         returnText(newText)
@@ -10,13 +10,15 @@ const TextField = ({ returnText }) => {
 
 
     return (
-            <input type="text" placeholder="Search here"
+            <input type="text" placeholder={placeholder}
             value={inputText} onChange={(e) => onTextChange(e.target.value)} />
     )
 }
 
 TextField.defaultProps = {
-    returnText: (text) =>  {}
+    returnText: (text) =>  {},
+    placeholder: "",
+    initialText: ""
 }
 
 export default TextField
