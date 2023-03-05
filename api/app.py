@@ -37,6 +37,54 @@ app.config.from_pyfile('config.py')
 def test_route():
     return 'Hello World'
 
+def make_json_response( resp_dict:dict, status=200):
+    # receives a dictionary and crafts the Flask JSON response object for it
+    resp = Response(
+        response=json.dumps(resp_dict), status=status, mimetype="text/plain"
+    )
+
+    # add_access_control(resp)
+    resp.headers['Content-type'] = 'application/json'
+    return resp
+
+def error_response(status:int, message:str=None, error_json=None):
+    # crafts an erroneous message with the status and returns it
+    
+    if message is not None:
+        content = { 'message': message }
+
+    elif error_json is not None:
+        content = error_json
+
+    else:
+        raise Exception('No content provided')
+
+    resp = Response(
+        response=json.dumps(content), status=status, mimetype="text/plain"
+    )
+
+    # resp.headers['Access-Control-Allow-Origin'] = '*'
+    if error_json is not None: resp.headers['Content-type'] = 'application/json'
+    return resp
+
+@app.route('/api/test', methods=['GET', 'POST'])
+def test_sample():
+    if request.method != 'POST':
+        return error_response(400, message='Invalid HTTP method!')
+
+    # Expecting the following keys
+    # summary options and transcript
+    if request.json is None:
+        return error_response(400, message='No JSON content included!')
+
+    # for now craft a simple relay message
+    js = {
+        'rsp': 'Hello World'
+    }
+    resp = make_json_response(js)
+    return resp
+
+
 
 # running the code
 if __name__ == '__main__':
