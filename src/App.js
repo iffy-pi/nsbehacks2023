@@ -3,6 +3,7 @@ import './App.css';
 import { useState } from "react"
 import SearchComponent from './components/search/SearchComponent';
 import { ContentStates } from './functions/common';
+import Results  from './components/results/Results'
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
   return (
     <div className="bcontainer">
       <SearchComponent response={response} setResponse={setResponse}/>
+      <Results response={response} />
     </div>
   );
 }
