@@ -1,2 +1,4 @@
 # nsbehacks2023
 Repository for NSBE Hacks 2023
+#####################################
+Hairhive is a hackathon project aimed at solving the challenge of locating competent hairdressers and barbers, particularly for minority groups, especially those of African heritage, in new communities. The project proposes a Minimum Viable Product (MVP) that involves the creation of a centralized hive of hairdressers, barbers, and salons, leveraging web scraping techniques. Additional features include the ability to filter hair type, price, and location, as well as semantic search in the search field. The project also plans to integrate an AI-powered chatbot that offers in-depth hair styling advice and recommendations. Overall, Hairhive is an innovative solution that has the potential to improve access to quality hair care services for minority groups.
